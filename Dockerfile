@@ -31,6 +31,8 @@ RUN rm -f /.kerl/archives/*.tar.gz
 RUN ln -s /DATA/erl /usr/lib/erlang
 ENV PATH /usr/lib/erlang/bin:$PATH
 
+VOLUME ["/DATA/app"]
+
 WORKDIR /DATA/app
 
 ENTRYPOINT ["bash"]
