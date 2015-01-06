@@ -32,3 +32,5 @@ RUN ln -s /DATA/erl /usr/lib/erlang
 ENV PATH /usr/lib/erlang/bin:$PATH
 
 WORKDIR /DATA/app
+
+ENTRYPOINT ["bash"]
