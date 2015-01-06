@@ -1,3 +1,2 @@
 docker build  --no-cache -t antik486/centos7 .
-docker run -i -t  <ID> /bin/bash
-docker run -v $PWD:/DATA/app -i -t <ID> /bin/bash
+docker run -v $PWD/app:/DATA/app -i ntik486/centos7
