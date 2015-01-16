@@ -1,2 +1,2 @@
-docker build  --no-cache -t antik486/centos7 .
-docker run -v $PWD/app:/DATA/app -i ntik486/centos7
+docker build  --no-cache -t antik486/erl .
+docker run -v $PWD/app:/DATA/app -i antik486/erl
