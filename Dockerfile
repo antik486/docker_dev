@@ -22,8 +22,9 @@ RUN curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl; \
         kerl install r17 /opt/erl; \
         kerl cleanup all; \
         rm -f /.kerl/archives/*.tar.gz; \
-        ln -s /opt/erl /usr/lib/erlang; \
-        export PATH=/usr/lib/erlang/bin:$PATH
+        ln -s /opt/erl /usr/lib/erlang
+
+ENV PATH/usr/lib/erlang/bin:$PATH
 
 VOLUME ["/opt/app"]
 
