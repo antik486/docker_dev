@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM antik486/centos71
 MAINTAINER antik486 <antik486@gmail.com>
 
 RUN yum -y update; \
@@ -21,7 +21,7 @@ RUN curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl; \
         KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build 17.5 r17; \
         kerl install r17 /opt/erl; \
         kerl cleanup all; \
-        rm -f /.kerl/archives/*.tar.gz; \
+        rm -f .kerl/archives/*.tar.gz; \
         ln -s /opt/erl /usr/lib/erlang
 
 ENV PATH /usr/lib/erlang/bin:$PATH
@@ -29,5 +29,3 @@ ENV PATH /usr/lib/erlang/bin:$PATH
 VOLUME ["/opt/app"]
 
 WORKDIR /opt/app
-
-ENTRYPOINT ["bash"]
