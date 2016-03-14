@@ -18,7 +18,7 @@ RUN curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl; \
         chmod +x kerl; \
         mv kerl /usr/bin; \
         kerl update releases; \
-        KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build 18.1 r18; \
+        KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build 18.2.1 r18; \
         kerl install r18 /DATA/erl; \
         kerl cleanup all; \
         rm -f .kerl/archives/*.tar.gz; \
