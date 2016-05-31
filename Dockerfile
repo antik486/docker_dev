@@ -1,6 +1,9 @@
 FROM antik486/centos71
 MAINTAINER antik486 <antik486@gmail.com>
 
+ARG ERL_VERSION=18.3
+ENV ERL_VERSION ${ERL_VERSION}
+
 RUN yum -y update; \
     yum -y install \
         tar \
@@ -18,14 +21,13 @@ RUN curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl; \
         chmod +x kerl; \
         mv kerl /usr/bin; \
         kerl update releases; \
-        KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build 18.2.1 r18; \
-        kerl install r18 /DATA/erl; \
+        KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build ${ERL_VERSION} ${ERL_VERSION}; \
+        kerl install ${ERL_VERSION} /DATA/${ERL_VERSION}; \
         kerl cleanup all; \
-        rm -f .kerl/archives/*.tar.gz; \
-        ln -s /DATA/erl /usr/lib/erlang
+        rm -f .kerl/archives/*.tar.gz
 
-ENV PATH /usr/lib/erlang/bin:$PATH
+ENV PATH /DATA/${ERL_VERSION}/bin:$PATH
 
-VOLUME ["/DATA"]
-
-WORKDIR /DATA
+#VOLUME ["/DATA"]
+#
+#WORKDIR /DATA
