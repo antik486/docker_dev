@@ -1,2 +1,2 @@
-docker build  --no-cache -t antik486/erl .
+docker build  --build-arg APP_ENV=18.3 --no-cache -t antik486/erl .
 docker run -v $PWD/app:/DATA/app -i antik486/erl
